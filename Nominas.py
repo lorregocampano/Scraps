@@ -2,7 +2,7 @@ from selenium import webdriver
 import time
 import os
 import pyautogui
-chrome_path =r"C:\Users\lorrego\Desktop\webdriver\chromedriver.exe"
+chrome_path =r"INGRESAR PATH DEL CHROMEDRIVER"
 driver = webdriver.Chrome(chrome_path)
 driver.get("https://www.boletinconcursal.cl/nomina/liquidadores?fbclid=IwAR3WSpBehEuvia8JrlsRpiTG6nvOjazLup-HzcEBZDGh-FtNkQtMokI1AQc")
 driver.implicitly_wait(3)
