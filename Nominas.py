@@ -2,21 +2,23 @@ from selenium import webdriver
 import time
 import os
 import pyautogui
-chrome_path =r"INGRESAR PATH DEL CHROMEDRIVER"
+import csv
+import sys
+        
+chrome_path =r"C:\Users\lorrego\Desktop\webdriver\chromedriver.exe"
 driver = webdriver.Chrome(chrome_path)
 driver.get("https://www.boletinconcursal.cl/nomina/liquidadores?fbclid=IwAR3WSpBehEuvia8JrlsRpiTG6nvOjazLup-HzcEBZDGh-FtNkQtMokI1AQc")
 driver.implicitly_wait(3)
-
+#Header
 strnom="Nombre"
 strfon="Fono"
 strcorreo="Correo"
 strsusp="Suspensión"
 str1 = ","
-print(str1+strnom+str1+strfon+str1+strcorreo+str1+strsusp)
-f = open('myoutput.txt', 'wt')
+print(str1+strnom+str1+strfon+str1+strcorreo+str1+strsusp+str1)
 def elementos(): 
 #elemento 1
-    
+
     driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[1]/table/tbody/tr[1]/td[1]/i""").click()
     time.sleep(0.5)
     atliq1 = driver.find_element_by_xpath("""//*[@id="tShowLiquidadorIdentificacion"]/tbody/tr[1]/td""")
@@ -25,8 +27,8 @@ def elementos():
     atliqsus1 = driver.find_element_by_xpath("""//*[@id="tShowLiquidadorIdentificacion"]/tbody/tr[7]/td""")
     print(str1+atliq1.text+str1+atliq2.text+str1+atliq3.text+str1+atliqsus1.text)
     driver.find_element_by_xpath("""//*[@id="dlgShowLiquidador"]/div[1]/a""").click()
-    time.sleep(0.5)
-    
+    time.sleep(0.5)   
+       
 #elemento 2
     driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[1]/table/tbody/tr[2]/td[1]/i""").click()
     time.sleep(0.5)
@@ -169,38 +171,35 @@ def elementos():
     driver.find_element_by_xpath("""//*[@id="dlgShowLiquidador"]/div[1]/a""").click()
     time.sleep(0.5)
 
-elementos()
-
 def cambio_pag():
-    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[3]/span[2]""").click()
+    elementos()
+    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[4]""").click()
     time.sleep(0.5)
     elementos()
     time.sleep(0.5)
-    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[3]/span[3]""").click()
+    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[4]""").click()
     time.sleep(0.5)
     elementos()
     time.sleep(0.5)
-    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[3]/span[4]""").click()
+    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[4]""").click()
     time.sleep(0.5)
     elementos()
     time.sleep(0.5)
-    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[3]/span[5]""").click()
+    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[4]""").click()
     time.sleep(0.5)
     elementos()
     time.sleep(0.5)
-    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[3]/span[6]""").click()
+    driver.find_element_by_xpath("""//*[@id="tblLiquidadores"]/div[2]/span[4]""").click()
     time.sleep(0.5)
     elementos()
     time.sleep(0.5)
+ 
+    
+try:
 
-cambio_pag()
-
-os.system("taskkill /im chromedriver.exe")
-
-  
-
-
-
-
-
+  cambio_pag()
+            
+except:
+    print("No hay más que scrapear")
+   
 
